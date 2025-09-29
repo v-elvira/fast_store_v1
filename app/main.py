@@ -5,6 +5,7 @@ print(sys.path)
 
 from fastapi import FastAPI
 from app.routers import category, products
+import uvicorn
 
 app = FastAPI()
 
@@ -13,6 +14,8 @@ app = FastAPI()
 async def welcome() -> dict:
     return {"message": "My e-commerce app"}
 
+if __name__ == '__main__':
+    uvicorn.run(app='main:app', reload=True, port=8000)
 
 app.include_router(category.router)
 app.include_router(products.router)
