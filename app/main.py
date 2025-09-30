@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).parent.parent))
 print(sys.path)
 
 from fastapi import FastAPI
-from app.routers import category, products, auth
+from app.routers import category, products, auth, permission
 import uvicorn
 
 app = FastAPI()
@@ -20,3 +20,4 @@ if __name__ == '__main__':
 app.include_router(category.router)
 app.include_router(products.router)
 app.include_router(auth.router)
+app.include_router(permission.router)
